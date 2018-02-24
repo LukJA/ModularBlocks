@@ -55,3 +55,9 @@ set_global_assignment -name VHDL_FILE operation_xor.vhd
 set_global_assignment -name VHDL_FILE function_mux.vhd
 set_global_assignment -name VHDL_FILE function_demux.vhd
 set_global_assignment -name VHDL_FILE function_onehot.vhd
+set_global_assignment -name VHDL_FILE function_latch.vhd
+set_global_assignment -name VHDL_FILE function_memory.vhd
+set_global_assignment -name VHDL_FILE maths_unsigned.vhd
+set_global_assignment -name VHDL_FILE maths_signed.vhd
+set_global_assignment -name VHDL_FILE maths_logical.vhd
+set_global_assignment -name VHDL_FILE maths_iterative.vhd
