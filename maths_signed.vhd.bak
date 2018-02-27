@@ -27,9 +27,9 @@ entity M_signed_add is
 		output: out	vector_t(word_width-1 downto 0) := (others=>'0')
 		);
 		
-end M_signed_add;
+end M_unsigned_add;
 
-architecture logical of M_signed_add is 
+architecture logical of M_unsigned_add is 
 
 -- create locale signals with suffix '_s' for signed with one xtrea bit
 signal Q1_s  	 : SIGNED(word_width downto 0);

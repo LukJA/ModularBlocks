@@ -15,7 +15,7 @@ use ieee.numeric_std.all;
 use work.global.all;
 
 
-entity F_onehot_enc is
+entity F_onehot_enc
 
 	generic (	
 		addr_width	: integer := 8;
@@ -49,11 +49,11 @@ use ieee.numeric_std.all;
 use work.global.all;
 
 
-entity F_onehot_dec is
+entity F_onehot_enc
 
 	generic (	
-		word_width	: integer := 16;
-		addr_width	: integer := 8
+		word_width	: integer := 16
+		addr_width	: integer := 8;
 		);
 		
 	port(
@@ -61,19 +61,19 @@ entity F_onehot_dec is
 		Q1			: in 	vector_t(word_width-1 downto 0)
 		);
 		
-end F_onehot_dec;
+end F_onehot_enc;
 
-architecture logical of F_onehot_dec is
+architecture logical of F_onehot_enc is
 begin
 
 	process(all)begin 
 		/* clear the data */
-		output  <= (others => '0'); 
+		data  <= (others => '0'); 
 		
 		/* iterate, if we find a 1, send the current position to the output */
 		for i in 0 to (word_width - 1) loop
 		
-			if Q1(i) = '1' then
+			if Q1(i) = "1" then
 				output <= std_logic_vector(to_unsigned(i, addr_width)); 
 			end if;
 			

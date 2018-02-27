@@ -16,9 +16,9 @@ package global is
 	/* This type allows for parametric vector ports */
    type array_t is array (natural range <>) of std_logic_vector;
    /* this type cleans the look of the ports */
-   type vector_t is std_logic_vector;
+   alias vector_t is std_logic_vector;
 	/* This type keeps it configurable*/ 
-	type bit_t is std_logic;
+	alias bit_t is std_logic;
   
    -- functions to convert between boolean / std_[u]logic.
 	function bool_to_std (constant val : in boolean) return std_logic;

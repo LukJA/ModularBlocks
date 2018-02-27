@@ -1,0 +1,288 @@
+Analysis & Synthesis report for MODB
+Tue Feb 27 22:05:54 2018
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Tue Feb 27 22:05:54 2018           ;
+; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name               ; MODB                                        ;
+; Top-level Entity Name       ; MODB                                        ;
+; Family                      ; Cyclone V                                   ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
+; Total registers             ; N/A until Partition Merge                   ;
+; Total pins                  ; N/A until Partition Merge                   ;
+; Total virtual pins          ; N/A until Partition Merge                   ;
+; Total block memory bits     ; N/A until Partition Merge                   ;
+; Total PLLs                  ; N/A until Partition Merge                   ;
+; Total DLLs                  ; N/A until Partition Merge                   ;
++-----------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA2F17C7        ;                    ;
+; Top-level entity name                                                           ; MODB               ; MODB               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Tue Feb 27 22:05:45 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MODB -c MODB
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 0 entities, in source file pack_global.vhd
+    Info (12022): Found design unit 1: global File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/pack_global.vhd Line: 12
+    Info (12022): Found design unit 2: global-body File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/pack_global.vhd Line: 34
+Info (12021): Found 6 design units, including 3 entities, in source file operation_and.vhd
+    Info (12022): Found design unit 1: OP_array_and-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_and.vhd Line: 32
+    Info (12022): Found design unit 2: OP_vector_and-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_and.vhd Line: 66
+    Info (12022): Found design unit 3: OP_bit_and-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_and.vhd Line: 91
+    Info (12023): Found entity 1: OP_array_and File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_and.vhd Line: 17
+    Info (12023): Found entity 2: OP_vector_and File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_and.vhd Line: 52
+    Info (12023): Found entity 3: OP_bit_and File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_and.vhd Line: 81
+Info (12021): Found 6 design units, including 3 entities, in source file operation_or.vhd
+    Info (12022): Found design unit 1: OP_array_or-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_or.vhd Line: 32
+    Info (12022): Found design unit 2: OP_vector_or-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_or.vhd Line: 66
+    Info (12022): Found design unit 3: OP_bit_or-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_or.vhd Line: 89
+    Info (12023): Found entity 1: OP_array_or File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_or.vhd Line: 17
+    Info (12023): Found entity 2: OP_vector_or File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_or.vhd Line: 52
+    Info (12023): Found entity 3: OP_bit_or File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_or.vhd Line: 79
+Info (12021): Found 6 design units, including 3 entities, in source file operation_nand.vhd
+    Info (12022): Found design unit 1: OP_array_nand-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_nand.vhd Line: 32
+    Info (12022): Found design unit 2: OP_vector_nand-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_nand.vhd Line: 66
+    Info (12022): Found design unit 3: OP_bit_nand-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_nand.vhd Line: 91
+    Info (12023): Found entity 1: OP_array_nand File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_nand.vhd Line: 17
+    Info (12023): Found entity 2: OP_vector_nand File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_nand.vhd Line: 52
+    Info (12023): Found entity 3: OP_bit_nand File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_nand.vhd Line: 81
+Info (12021): Found 6 design units, including 3 entities, in source file operation_xor.vhd
+    Info (12022): Found design unit 1: OP_array_xor-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_xor.vhd Line: 32
+    Info (12022): Found design unit 2: OP_vector_xor-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_xor.vhd Line: 66
+    Info (12022): Found design unit 3: OP_bit_xor-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_xor.vhd Line: 91
+    Info (12023): Found entity 1: OP_array_xor File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_xor.vhd Line: 17
+    Info (12023): Found entity 2: OP_vector_xor File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_xor.vhd Line: 52
+    Info (12023): Found entity 3: OP_bit_xor File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/operation_xor.vhd Line: 81
+Info (12021): Found 4 design units, including 2 entities, in source file function_mux.vhd
+    Info (12022): Found design unit 1: F_mux_array-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_mux.vhd Line: 33
+    Info (12022): Found design unit 2: F_mux_vector-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_mux.vhd Line: 76
+    Info (12023): Found entity 1: F_mux_array File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_mux.vhd Line: 17
+    Info (12023): Found entity 2: F_mux_vector File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_mux.vhd Line: 61
+Info (12021): Found 4 design units, including 2 entities, in source file function_demux.vhd
+    Info (12022): Found design unit 1: F_demux_array-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_demux.vhd Line: 33
+    Info (12022): Found design unit 2: F_demux_vector-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_demux.vhd Line: 75
+    Info (12023): Found entity 1: F_demux_array File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_demux.vhd Line: 17
+    Info (12023): Found entity 2: F_demux_vector File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_demux.vhd Line: 60
+Info (12021): Found 4 design units, including 2 entities, in source file function_onehot.vhd
+    Info (12022): Found design unit 1: F_onehot_enc-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_onehot.vhd Line: 32
+    Info (12022): Found design unit 2: F_onehot_dec-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_onehot.vhd Line: 66
+    Info (12023): Found entity 1: F_onehot_enc File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_onehot.vhd Line: 18
+    Info (12023): Found entity 2: F_onehot_dec File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_onehot.vhd Line: 52
+Info (12021): Found 4 design units, including 2 entities, in source file function_latch.vhd
+    Info (12022): Found design unit 1: F_latch_sr-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_latch.vhd Line: 29
+    Info (12022): Found design unit 2: F_latch_dff-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_latch.vhd Line: 68
+    Info (12023): Found entity 1: F_latch_sr File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_latch.vhd Line: 19
+    Info (12023): Found entity 2: F_latch_dff File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_latch.vhd Line: 58
+Info (12021): Found 4 design units, including 2 entities, in source file function_memory.vhd
+    Info (12022): Found design unit 1: F_mem_register-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_memory.vhd Line: 31
+    Info (12022): Found design unit 2: F_mem_sr-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_memory.vhd Line: 66
+    Info (12023): Found entity 1: F_mem_register File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_memory.vhd Line: 17
+    Info (12023): Found entity 2: F_mem_sr File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/function_memory.vhd Line: 52
+Info (12021): Found 6 design units, including 3 entities, in source file maths_unsigned.vhd
+    Info (12022): Found design unit 1: M_unsigned_add-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 33
+    Info (12022): Found design unit 2: M_unsigned_sub-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 68
+    Info (12022): Found design unit 3: M_unsigned_multi-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 102
+    Info (12023): Found entity 1: M_unsigned_add File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 17
+    Info (12023): Found entity 2: M_unsigned_sub File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 53
+    Info (12023): Found entity 3: M_unsigned_multi File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 88
+Info (12021): Found 6 design units, including 3 entities, in source file maths_signed.vhd
+    Info (12022): Found design unit 1: M_signed_add-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 32
+    Info (12022): Found design unit 2: M_signed_sub-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 81
+    Info (12022): Found design unit 3: M_signed_multi-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 129
+    Info (12023): Found entity 1: M_signed_add File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 17
+    Info (12023): Found entity 2: M_signed_sub File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 66
+    Info (12023): Found entity 3: M_signed_multi File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 115
+Info (12021): Found 8 design units, including 4 entities, in source file maths_logical.vhd
+    Info (12022): Found design unit 1: M_logical_rotleft-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 31
+    Info (12022): Found design unit 2: M_logical_rotright-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 60
+    Info (12022): Found design unit 3: M_logical_shiftleft-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 89
+    Info (12022): Found design unit 4: M_logical_shiftright-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 118
+    Info (12023): Found entity 1: M_logical_rotleft File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 17
+    Info (12023): Found entity 2: M_logical_rotright File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 46
+    Info (12023): Found entity 3: M_logical_shiftleft File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 75
+    Info (12023): Found entity 4: M_logical_shiftright File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 104
+Info (12021): Found 8 design units, including 4 entities, in source file maths_iterative.vhd
+    Info (12022): Found design unit 1: M_iterative_uns_inc-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 30
+    Info (12022): Found design unit 2: M_iterative_sin_inc-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 58
+    Info (12022): Found design unit 3: M_iterative_uns_dec-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 86
+    Info (12022): Found design unit 4: M_iterative_sin_dec-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 114
+    Info (12023): Found entity 1: M_iterative_uns_inc File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 17
+    Info (12023): Found entity 2: M_iterative_sin_inc File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 45
+    Info (12023): Found entity 3: M_iterative_uns_dec File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 73
+    Info (12023): Found entity 4: M_iterative_sin_dec File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_iterative.vhd Line: 101
+Info (12021): Found 6 design units, including 3 entities, in source file unit_alu.vhd
+    Info (12022): Found design unit 1: U_ALU_unsigned-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_alu.vhd Line: 49
+    Info (12022): Found design unit 2: U_ALU_signed-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_alu.vhd Line: 140
+    Info (12022): Found design unit 3: U_ALU_super-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_alu.vhd Line: 226
+    Info (12023): Found entity 1: U_ALU_unsigned File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_alu.vhd Line: 18
+    Info (12023): Found entity 2: U_ALU_signed File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_alu.vhd Line: 108
+    Info (12023): Found entity 3: U_ALU_super File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_alu.vhd Line: 195
+Info (12021): Found 6 design units, including 3 entities, in source file unit_counter.vhd
+    Info (12022): Found design unit 1: U_incrementer-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_counter.vhd Line: 32
+    Info (12022): Found design unit 2: U_decrementer-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_counter.vhd Line: 66
+    Info (12022): Found design unit 3: U_adjustcounter-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_counter.vhd Line: 115
+    Info (12023): Found entity 1: U_incrementer File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_counter.vhd Line: 17
+    Info (12023): Found entity 2: U_decrementer File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_counter.vhd Line: 51
+    Info (12023): Found entity 3: U_adjustcounter File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_counter.vhd Line: 85
+Info (12021): Found 4 design units, including 2 entities, in source file unit_memory.vhd
+    Info (12022): Found design unit 1: U_mem_page1p-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_memory.vhd Line: 49
+    Info (12022): Found design unit 2: U_mem_page2p-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_memory.vhd Line: 113
+    Info (12023): Found entity 1: U_mem_page1p File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_memory.vhd Line: 17
+    Info (12023): Found entity 2: U_mem_page2p File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_memory.vhd Line: 81
+Info (12021): Found 2 design units, including 1 entities, in source file unit_pipe.vhd
+    Info (12022): Found design unit 1: U_pipe_buffer-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_pipe.vhd Line: 47
+    Info (12023): Found entity 1: U_pipe_buffer File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_pipe.vhd Line: 17
+Error (10327): VHDL error at maths_unsigned.vhd(39): can't determine definition of operator ""&"" -- found 4 possible definitions File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 39
+Error (10647): VHDL type inferencing error at maths_unsigned.vhd(39): type of expression is ambiguous - "std_ulogic_vector" or "std_logic_vector" are two possible matches File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 39
+Error (10411): VHDL Type Conversion error at maths_unsigned.vhd(39): can't determine type of object or expression near text or symbol "UNSIGNED" File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 39
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 1 warning
+    Error: Peak virtual memory: 762 megabytes
+    Error: Processing ended: Tue Feb 27 22:05:54 2018
+    Error: Elapsed time: 00:00:09
+    Error: Total CPU time (on all processors): 00:00:22
+
+

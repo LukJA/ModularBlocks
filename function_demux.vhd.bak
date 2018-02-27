@@ -57,7 +57,7 @@ use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.global.all;
 
-entity F_demux_vector is
+entity F_mux_vector is
 
 	generic (	
 		word_width	: integer := 16;
@@ -83,7 +83,7 @@ begin
 			if addr = (std_logic_vector(to_unsigned(i, addr_width))) then
 				output(i) <= Q1;
 			else 
-				output(i) <= '0';
+				output(i) <= (others => '0');
 			end if;	
 			
 		end loop;	

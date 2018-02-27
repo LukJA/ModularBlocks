@@ -65,14 +65,9 @@ end OP_vector_and;
 
 architecture logical of OP_vector_and is 
 begin
-	process(all) begin
 
-		-- process to combine vectors on input 
-		for j in 0 to word_no-1 loop
-			output(j) <= Q1(j) and Q2(j);
-		end loop;
+		output <= Q1 and Q2;
 		
-	end process;
 end logical;
 
 --------------------------------
@@ -95,6 +90,6 @@ end OP_bit_and;
 
 architecture logical of OP_bit_and is 
 begin
-			output <= Q1 and Q2
+			output <= Q1 and Q2;
 
 end logical;

@@ -18,7 +18,7 @@ use work.global.all;
 entity U_ALU_unsigned is
 
 	generic (	
-		word_width		: integer := 16
+		word_width		: integer := 16;
 		control_width	: integer := 4
 		);
 		
@@ -29,9 +29,9 @@ entity U_ALU_unsigned is
 		Enable		: in bit_t := '0';
 		
 		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');: 
+		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
-		Reset			: in  bit_t := '0';
+		Reset			: in  bit_t := '0'
 		);
 		
 		/* DataIn 		: 2 vectors holding the data to be computed */
@@ -53,7 +53,7 @@ signal carry_out 	: bit_t := '0';
 signal sub_out 	: bit_t := '0';
 signal multi_out	: vector_t(word_width-1 downto 0) := (others => '0');
 
-signal outputMux	: array(7 downto 0)(word_width-1 downto 0);
+signal outputMux	: array_t(7 downto 0)(word_width-1 downto 0);
 
 begin
 	
@@ -76,7 +76,7 @@ begin
 	
 	/* logical maths */
 	log_rol: entity work.M_logical_rotleft generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(11));
-	log_ror: entity work.M_logical_rotright generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(12);
+	log_ror: entity work.M_logical_rotright generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(12));
 	log_sll: entity work.M_logical_shiftleft generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(13));
 	log_srl: entity work.M_logical_shiftright generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(14));
 	
@@ -108,7 +108,7 @@ use work.global.all;
 entity U_ALU_signed is
 
 	generic (	
-		word_width		: integer := 16
+		word_width		: integer := 16;
 		control_width	: integer := 4
 		);
 		
@@ -121,7 +121,7 @@ entity U_ALU_signed is
 		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
-		Reset			: in  bit_t := '0';
+		Reset			: in  bit_t := '0'
 		
 		/* DataIn 		: 2 vectors holding the data to be computed */
 		/* AddressIn 	: 4 bit wide vector selecting the chosen operation */
@@ -143,7 +143,7 @@ signal overflowA 	: bit_t := '0';
 signal overflowB 	: bit_t := '0';
 signal multi_out	: vector_t(word_width-1 downto 0) := (others => '0');
 
-signal outputMux	: array(7 downto 0)(word_width-1 downto 0);
+signal outputMux	: array_t(7 downto 0)(word_width-1 downto 0);
 
 begin
 	
@@ -166,7 +166,7 @@ begin
 	
 		/* logical maths */
 	log_rol: entity work.M_logical_rotleft generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(11));
-	log_ror: entity work.M_logical_rotright generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(12);
+	log_ror: entity work.M_logical_rotright generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(12));
 	log_sll: entity work.M_logical_shiftleft generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(13));
 	log_srl: entity work.M_logical_shiftright generic map (word_width) port map (DataIn(0), DataIn(1), outputMux(14));
 	
@@ -192,10 +192,10 @@ use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.global.all;
 
-entity U_ALU_signed is
+entity U_ALU_super is
 
 	generic (	
-		word_width		: integer := 16
+		word_width		: integer := 16;
 		control_width	: integer := 5
 		);
 		
@@ -208,7 +208,7 @@ entity U_ALU_signed is
 		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out vector_t(3 downto 0) := (others=>'0');
-		Reset			: in  bit_t := '0';
+		Reset			: in  bit_t := '0'
 		
 		/* DataIn 		: 2 vectors holding the data to be computed */
 		/* AddressIn 	: 5 bit wide vector selecting the chosen operation */
@@ -221,9 +221,9 @@ entity U_ALU_signed is
 		/* Reset 		: 1 bit reset port */
 		);
 		
-end U_ALU_signed;
+end U_ALU_super;
 
-architecture logical of U_ALU_signed is
+architecture logical of U_ALU_super is
 
 signal carry_in 	: bit_t := '0';
 signal carry_out 	: bit_t := '0';
@@ -235,7 +235,7 @@ signal overflowB 	: bit_t := '0';
 signal multi_outS	: vector_t(word_width-1 downto 0) := (others => '0');
 
 
-signal outputMux	: array(9 downto 0)(word_width-1 downto 0);
+signal outputMux	: array_t(9 downto 0)(word_width-1 downto 0);
 
 begin
 	

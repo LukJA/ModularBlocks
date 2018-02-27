@@ -68,7 +68,7 @@ entity F_mux_vector is
 	port(	
 		Q1  		: in  vector_t(word_width-1 downto 0) := (others => '0');
 		addr   	: in  vector_t(addr_width-1 downto 0) := (others => '0');
-		output 	: out bit_t(word_width-1 downto 0) := (others => '0')
+		output 	: out bit_t := '0'
 		);
 		
 end F_mux_vector;

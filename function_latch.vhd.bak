@@ -16,7 +16,7 @@ use work.global.all;
 
 /* sets latch if both lines are raised at the same time */
 /* otherwise sets and resets on rising edges */
-entity F_latch_sr is
+entity F_latch_sr
 		
 	port(
 		S 			: in  bit_t := '0';
@@ -34,10 +34,10 @@ begin
 		if rising_edge(S) and rising_edge(R) then
 			output <= '1';
 			
-		elsif rising_edge(S) then
+		else if rising_edge(S) then
 			output <= '1';
 		
-		elsif rising_edge(R) then
+		else if rising_edge(R) then
 			output <= '0';
 			
 		end if;
@@ -55,7 +55,7 @@ use ieee.numeric_std.all;
 use work.global.all;
 
 
-entity F_latch_dff is
+entity F_latch_dff
 		
 	port(
 		clk		: in  bit_t := '0';

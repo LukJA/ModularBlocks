@@ -25,7 +25,7 @@ entity U_incrementer is
 		clock			: in bit_t := '0';
 		reset			: in bit_t := '0';
 		enable		: in bit_t := '0'
-		);
+		)
 		
 end U_incrementer;
 
@@ -59,7 +59,7 @@ entity U_decrementer is
 		clock			: in bit_t := '0';
 		reset			: in bit_t := '0';
 		enable		: in bit_t := '0'
-		);
+		)
 		
 end U_decrementer;
 
@@ -95,9 +95,9 @@ entity U_adjustcounter is
 		Enable		: in bit_t := '0';
 		
 		DataOut 		: out bit_t;
-		AddressOut	: out vector_t(word_width-1 downto 0) := (others=>'0');
+		AddressOut	: out vector_t(word_width-1 downto 0) := (others=>'0');: 
 		ControlOut 	: out bit_t;
-		Reset			: in  bit_t := '0'
+		Reset			: in  bit_t := '0';
 		);
 		
 		/* DataIn 		: diabled */
@@ -120,9 +120,9 @@ begin
 
 	PC_reg: entity work.F_mem_register generic map (word_width) port map (ControlIn(1) and enable, plus_one, AddressOut);
 	
-	with (reset & ControlIn(0)) select plus_one <=
-		std_logic_vector(unsigned(output) + 1) when "00", /* normal */ 
-									  (others => '0') when "1-", /* reset */  
+	with reset & ControlIn(0) select plus_one <=
+		std_logic_vector(unsigned(output) + 1) when "00" /* normal */ else
+									  (others => '0') when "1-" /* reset */  else
 										     AddressIn when "01";/* adjust */
 	
 end logical;

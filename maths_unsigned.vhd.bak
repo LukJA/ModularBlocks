@@ -36,7 +36,7 @@ signal temp : vector_t(word_width downto 0);
 
 begin
 	
-	temp   <= std_logic_vector(unsigned(Q1) + unsigned(Q2) + unsigned(c_in & ""));
+	temp   <= std_logic_vector(unsigned(Q1) + unsigned(Q2) + unsigned(c_in));
 	cout   <= temp(word_width);
 	output <= temp(word_width-1 downto 0);
 		
@@ -65,7 +65,7 @@ entity M_unsigned_sub is
 		
 end M_unsigned_sub;
 
-architecture logical of M_unsigned_sub is 
+architecture logical of M_unsigned_add is 
 
 signal temp : vector_t(word_width downto 0);
 

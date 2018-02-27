@@ -1,4 +1,4 @@
-/* function_demux .vhd */
+/* function_mux .vhd */
 /* multiplexers */
 /* designed for modular general use under the K1 standard */
 /* (c) Luke Andrews 2017 */
@@ -8,13 +8,13 @@
 
 -------------------------------
 
-/* array sized demultiplexer */
+/* array sized multiplexer */
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.global.all;
 
-entity F_demux_array is
+entity F_mux_array is
 
 	generic (	
 		word_no 		: integer := 32;
@@ -23,41 +23,42 @@ entity F_demux_array is
 		);
 		
 	port(	
-		Q1  		: in  vector_t(word_width-1 downto 0) := (others => '0');
+		Q1  		: in  array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
 		addr   	: in  vector_t(addr_width-1 downto 0) := (others => '0');
-		output 	: out array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'))
+		output 	: out vector_t(word_width-1 downto 0) := (others => '0')
 		);
 		
-end F_demux_array;
+end F_mux_array;
 
-architecture logical of F_demux_array is 
+architecture logical of F_mux_array is 
 begin
 
-	process(all)begin
+	process(all) begin
+	
+		/* clean the output of any values */
+		output <= (others => '0');
 		
-		/* iterate through every output option */
-		for i in 0 to (word_no - 1) loop
-			/* if its the address, select this output otherwise clean it */
+		/* interate though every location */
+		/* if the address is matching, copy the output */
+		for i in 0 to word_no-1 loop
 			if addr = (std_logic_vector(to_unsigned(i, addr_width))) then
-				output(i) <= Q1;
-			else 
-				output(i) <= (others => '0');
-			end if;	
+				output <= Q1(i);
+			end if;
 			
-		end loop;	
-	end process;	
+		end loop;
+	end process;
 	
 end logical;
 
 --------------------------------
 
-/* Vector sized demultiplexer */
+/* Vector sized multiplexer */
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.global.all;
 
-entity F_demux_vector is
+entity F_mux_vector is
 
 	generic (	
 		word_width	: integer := 16;
@@ -65,29 +66,30 @@ entity F_demux_vector is
 		);
 		
 	port(	
-		Q1  		: in  bit_t := '0';
+		Q1  		: in  vector_t(word_width-1 downto 0) := (others => '0');
 		addr   	: in  vector_t(addr_width-1 downto 0) := (others => '0');
-		output 	: out vector_t(word_width-1 downto 0) := (others => '0')
+		output 	: out bit_t(word_width-1 downto 0) := (others => '0')
 		);
 		
-end F_demux_vector;
+end F_mux_vector;
 
-architecture logical of F_demux_vector is 
+architecture logical of F_mux_vector is 
 begin
 
-	process(all)begin
+	process(all) begin
+	
+		/* clean the output of any values */
+		output <= '0';
 		
-		/* iterate through every output option */
-		for i in 0 to (word_width - 1) loop
-			/* if its the address, select this output otherwise clean it */
+		/* interate though every location */
+		/* if the address is matching, copy the output */
+		for i in 0 to word_width-1 loop
 			if addr = (std_logic_vector(to_unsigned(i, addr_width))) then
-				output(i) <= Q1;
-			else 
-				output(i) <= '0';
-			end if;	
+				output <= Q1(i);
+			end if;
 			
-		end loop;	
-	end process;	
+		end loop;
+	end process;
 	
 end logical;
 

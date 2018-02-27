@@ -65,14 +65,9 @@ end OP_vector_xor;
 
 architecture logical of OP_vector_xor is 
 begin
-	process(all) begin
 
-		-- process to combine vectors on input 
-		for j in 0 to word_no-1 loop
-			output(j) <= Q1(j) xor Q2(j);
-		end loop;
-		
-	end process;
+		output <= Q1 xor Q2;
+			
 end logical;
 
 --------------------------------
@@ -95,6 +90,6 @@ end OP_bit_xor;
 
 architecture logical of OP_bit_xor is 
 begin
-			output <= Q1 xor Q2
+			output <= Q1 xor Q2;
 
 end logical;

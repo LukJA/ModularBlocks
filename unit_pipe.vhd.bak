@@ -17,7 +17,7 @@ use work.global.all;
 entity U_pipe_buffer is
 
 	generic (	
-		word_width		: integer := 16
+		word_width		: integer := 16;
 		);
 		
 	port(	
@@ -27,7 +27,7 @@ entity U_pipe_buffer is
 		Enable		: in bit_t := '0';
 		
 		DataOut 		: out vector_t(word_width-1 downto 0) := (others=>'0');
-		AddressOut	: out bit_t;
+		AddressOut	: out bit_t
 		ControlOut 	: out bit_t;
 		Reset			: in  bit_t := '0'
 		);

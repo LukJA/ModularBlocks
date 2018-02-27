@@ -32,6 +32,7 @@ end OP_array_nand;
 architecture logical of OP_array_nand is 
 begin
 
+	process(all) begin
 		-- process to combine arrays on input 
 		for j in 0 to word_no-1 loop
 			output(j) <= Q1(j) nand Q2(j);
@@ -64,14 +65,9 @@ end OP_vector_nand;
 
 architecture logical of OP_vector_nand is 
 begin
-	process(all) begin
 
-		-- process to combine vectors on input 
-		for j in 0 to word_no-1 loop
-			output(j) <= Q1(j) nand Q2(j);
-		end loop;
-		
-	end process;
+		output <= Q1 nand Q2;
+
 end logical;
 
 --------------------------------
@@ -94,6 +90,6 @@ end OP_bit_nand;
 
 architecture logical of OP_bit_nand is 
 begin
-			output <= Q1 nand Q2
+			output <= Q1 nand Q2;
 
 end logical;

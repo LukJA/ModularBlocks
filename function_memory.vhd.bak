@@ -49,7 +49,7 @@ use work.global.all;
 
 /* sets latch if both lines are raised at the same time */
 /* otherwise sets and resets on rising edges */
-entity F_mem_sr is
+entity F_mem_sr
 
 	generic( 
 		word_width: integer := 1	-- width
@@ -58,7 +58,7 @@ entity F_mem_sr is
 	port(
 		S 			: in  vector_t(word_width-1 downto 0) := (others => '0');
 		R			: in  vector_t(word_width-1 downto 0) := (others => '0');
-		output	: out vector_t(word_width-1 downto 0) := (others => '0')
+		output	: out vector_t(word_width-1 downto 0) := (others => '0');
 		);
 		
 end F_mem_sr;
@@ -72,10 +72,10 @@ begin
 			if rising_edge(S(i)) and rising_edge(R(i)) then
 				output(i) <= '1';
 				
-			elsif rising_edge(S(i)) then
+			else if rising_edge(S(i)) then
 				output(i) <= '1';
 			
-			elsif rising_edge(R(i)) then
+			else if rising_edge(R(i)) then
 				output(i) <= '0';
 				
 			end if;
