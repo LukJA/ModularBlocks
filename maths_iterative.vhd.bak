@@ -25,9 +25,9 @@ entity M_iterative_uns_inc is
 		output: out	vector_t(word_width-1 downto 0) := (others=>'0')
 		);
 		
-end M_iterative_uns_inc;
+end M_iterative_inc;
 
-architecture logical of M_iterative_uns_inc is
+architecture logical of M_iterative_inc is
 begin
 
 	output <= std_logic_vector(unsigned(Q1) + 1);
@@ -70,7 +70,7 @@ use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.global.all;
 
-entity M_iterative_uns_dec is
+entity M_iterative_uns_inc is
 
 	generic (	
 		word_width	: integer := 16
@@ -81,9 +81,9 @@ entity M_iterative_uns_dec is
 		output: out	vector_t(word_width-1 downto 0) := (others=>'0')
 		);
 		
-end M_iterative_uns_dec;
+end M_iterative_inc;
 
-architecture logical of M_iterative_uns_dec is
+architecture logical of M_iterative_inc is
 begin
 
 	output <= std_logic_vector(unsigned(Q1) - 1);
@@ -98,7 +98,7 @@ use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.global.all;
 
-entity M_iterative_sin_dec is
+entity M_iterative_sin_inc is
 
 	generic (	
 		word_width	: integer := 16
@@ -109,9 +109,9 @@ entity M_iterative_sin_dec is
 		output: out	vector_t(word_width-1 downto 0) := (others=>'0')
 		);
 		
-end M_iterative_sin_dec;
+end M_iterative_sin_inc;
 
-architecture logical of M_iterative_sin_dec is
+architecture logical of M_iterative_sin_inc is
 begin
 
 	output <= std_logic_vector(signed(Q1) - 1);

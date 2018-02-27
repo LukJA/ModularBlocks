@@ -25,14 +25,24 @@ entity U_ALU_unsigned is
 	port(	
 		DataIn 		: in array_t(1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
 		AddressIn	: in vector_t(control_width-1 downto 0) := (others=>'0');
-		ControlIn 	: in vector_t(control_width-1 downto 0) := (others=>'0');
+		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
 		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		AddressOut	: out array_t(0 downto 0)(0 downto 0) := (others=> (others=>'0')); -- not used
-		ControlOut 	: out vector_t(control_width-1 downto 0) := (others=>'0');
+		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');: 
+		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
 		Reset			: in  bit_t := '0';
 		);
+		
+		/* DataIn 		: 2 vectors holding the data to be computed */
+		/* AddressIn 	: 4 bit wide vector selecting the chosen operation */
+		/* controlIn	: 1 bit wide carry in vector for addition */
+		/* Enable 		: 1 bit enable port */
+		
+		/* DataOut 		: 1 vector output containing the data */
+		/* AddressOut 	: 4 bit wide vector - follows through */
+		/* controlOut	: 2 bit carry out vector */
+		/* Reset 		: 1 bit reset port */
 		
 end U_ALU_unsigned;
 
@@ -77,6 +87,11 @@ begin
 	/* output multiplexer */
 	out_mux: entity work.F_mux_array generic map (16, word_width, control_width) port map (outputMux, AddressIn, DataOut(0));
 	
+	/* control signals */
+	carry_in <= ControlIn(0);
+	ControlOut(0) <= carry_out;
+	ControlOut(1) <= sub_out;
+	AddressOut <= AddressIn;
 
 end logical;
 
@@ -104,9 +119,20 @@ entity U_ALU_signed is
 		Enable		: in bit_t := '0';
 		
 		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		AddressOut	: out array_t(0 downto 0)(0 downto 0) := (others=> (others=>'0')); -- not used
-		ControlOut 	: out vector_t(control_width-1 downto 0) := (others=>'0');
+		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
+		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
 		Reset			: in  bit_t := '0';
+		
+		/* DataIn 		: 2 vectors holding the data to be computed */
+		/* AddressIn 	: 4 bit wide vector selecting the chosen operation */
+		/* controlIn	: unused */
+		/* Enable 		: 1 bit enable port */
+		
+		/* DataOut 		: 1 vector output containing the data */
+		/* AddressOut 	: 4 bit wide vector - follows through */
+		/* controlOut	: 2 bit carry out vector */
+		/* Reset 		: 1 bit reset port */
+		
 		);
 		
 end U_ALU_signed;
@@ -150,6 +176,10 @@ begin
 	/* output multiplexer */
 	out_mux: entity work.F_mux_array generic map (16, word_width, control_width) port map (outputMux, AddressIn, DataOut(0));
 	
+	/* control signals */
+	ControlOut(0) <= overflowA;
+	ControlOut(1) <= overflowB;
+	AddressOut <= AddressIn;
 
 end logical;
 
@@ -166,19 +196,29 @@ entity U_ALU_signed is
 
 	generic (	
 		word_width		: integer := 16
-		control_width	: integer := 4
+		control_width	: integer := 5
 		);
 		
 	port(	
 		DataIn 		: in array_t(1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
 		AddressIn	: in vector_t(control_width-1 downto 0) := (others=>'0');
-		ControlIn 	: in vector_t(control_width-1 downto 0) := (others=>'0');
+		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
 		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		AddressOut	: out array_t(0 downto 0)(0 downto 0) := (others=> (others=>'0')); -- not used
-		ControlOut 	: out vector_t(control_width-1 downto 0) := (others=>'0');
+		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
+		ControlOut 	: out vector_t(3 downto 0) := (others=>'0');
 		Reset			: in  bit_t := '0';
+		
+		/* DataIn 		: 2 vectors holding the data to be computed */
+		/* AddressIn 	: 5 bit wide vector selecting the chosen operation */
+		/* controlIn	: 1 bit carry in*/
+		/* Enable 		: 1 bit enable port */
+		
+		/* DataOut 		: 1 vector output containing the data */
+		/* AddressOut 	: 5 bit wide vector - follows through */
+		/* controlOut	: 4 bit carry out vector */
+		/* Reset 		: 1 bit reset port */
 		);
 		
 end U_ALU_signed;
@@ -238,6 +278,13 @@ begin
 	/* output multiplexer */
 	out_mux: entity work.F_mux_array generic map (32, word_width, control_width) port map (outputMux, AddressIn, DataOut(0));
 	
+	/* control signals */
+	carry_in <= ControlIn(0);
+	ControlOut(0) <= carry_out;
+	ControlOut(1) <= sub_out;
+	ControlOut(2) <= overflowA;
+	ControlOut(3) <= overflowB;
+	AddressOut <= AddressIn;
 
 end logical;
 
