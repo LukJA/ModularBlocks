@@ -61,3 +61,4 @@ set_global_assignment -name VHDL_FILE maths_unsigned.vhd
 set_global_assignment -name VHDL_FILE maths_signed.vhd
 set_global_assignment -name VHDL_FILE maths_logical.vhd
 set_global_assignment -name VHDL_FILE maths_iterative.vhd
+set_global_assignment -name VHDL_FILE unit_alu.vhd
