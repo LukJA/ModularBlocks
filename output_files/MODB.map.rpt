@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MODB
-Tue Feb 27 22:05:54 2018
+Wed Feb 28 11:17:34 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Tue Feb 27 22:05:54 2018           ;
+; Analysis & Synthesis Status ; Failed - Wed Feb 28 11:17:34 2018           ;
 ; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name               ; MODB                                        ;
 ; Top-level Entity Name       ; MODB                                        ;
@@ -162,7 +162,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Feb 27 22:05:45 2018
+    Info: Processing started: Wed Feb 28 11:17:23 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MODB -c MODB
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -231,11 +231,11 @@ Info (12021): Found 6 design units, including 3 entities, in source file maths_u
     Info (12023): Found entity 3: M_unsigned_multi File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 88
 Info (12021): Found 6 design units, including 3 entities, in source file maths_signed.vhd
     Info (12022): Found design unit 1: M_signed_add-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 32
-    Info (12022): Found design unit 2: M_signed_sub-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 81
-    Info (12022): Found design unit 3: M_signed_multi-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 129
+    Info (12022): Found design unit 2: M_signed_sub-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 88
+    Info (12022): Found design unit 3: M_signed_multi-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 143
     Info (12023): Found entity 1: M_signed_add File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 17
-    Info (12023): Found entity 2: M_signed_sub File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 66
-    Info (12023): Found entity 3: M_signed_multi File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 115
+    Info (12023): Found entity 2: M_signed_sub File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 73
+    Info (12023): Found entity 3: M_signed_multi File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_signed.vhd Line: 129
 Info (12021): Found 8 design units, including 4 entities, in source file maths_logical.vhd
     Info (12022): Found design unit 1: M_logical_rotleft-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 31
     Info (12022): Found design unit 2: M_logical_rotright-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_logical.vhd Line: 60
@@ -276,13 +276,11 @@ Info (12021): Found 4 design units, including 2 entities, in source file unit_me
 Info (12021): Found 2 design units, including 1 entities, in source file unit_pipe.vhd
     Info (12022): Found design unit 1: U_pipe_buffer-logical File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_pipe.vhd Line: 47
     Info (12023): Found entity 1: U_pipe_buffer File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/unit_pipe.vhd Line: 17
-Error (10327): VHDL error at maths_unsigned.vhd(39): can't determine definition of operator ""&"" -- found 4 possible definitions File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 39
-Error (10647): VHDL type inferencing error at maths_unsigned.vhd(39): type of expression is ambiguous - "std_ulogic_vector" or "std_logic_vector" are two possible matches File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 39
-Error (10411): VHDL Type Conversion error at maths_unsigned.vhd(39): can't determine type of object or expression near text or symbol "UNSIGNED" File: C:/Users/lukej/Desktop/EPQ2017tests/BlockMods/ModularBlocks/maths_unsigned.vhd Line: 39
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 1 warning
-    Error: Peak virtual memory: 762 megabytes
-    Error: Processing ended: Tue Feb 27 22:05:54 2018
-    Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:22
+Error (12007): Top-level design entity "MODB" is undefined
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
+    Error: Peak virtual memory: 765 megabytes
+    Error: Processing ended: Wed Feb 28 11:17:34 2018
+    Error: Elapsed time: 00:00:11
+    Error: Total CPU time (on all processors): 00:00:21
 
 

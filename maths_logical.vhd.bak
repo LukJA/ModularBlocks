@@ -31,7 +31,7 @@ end M_logical_rotleft;
 architecture logical of M_logical_rotleft is
 begin
 
-	output <= std_logic_vector(rotate_left(unsigned(Q1), to_integer(unsigned(Q2))));
+	output <= Q1 rol unsigned(Q2);
 
 end logical;
 
@@ -60,7 +60,7 @@ end M_logical_rotright;
 architecture logical of M_logical_rotright is
 begin
 
-	output <= std_logic_vector(rotate_right(unsigned(Q1), to_integer(unsigned(Q2))));
+	output <= Q1 ror unsigned(Q2);
 
 end logical;
 
@@ -89,7 +89,7 @@ end M_logical_shiftleft;
 architecture logical of M_logical_shiftleft is
 begin
 
-	output <= std_logic_vector(shift_left(unsigned(Q1), to_integer(unsigned(Q2))));
+	output <= Q1 sll unsigned(Q2);
 
 end logical;
 
@@ -118,7 +118,7 @@ end M_logical_shiftright;
 architecture logical of M_logical_shiftright is
 begin
 
-	output <= std_logic_vector(shift_left(unsigned(Q1), to_integer(unsigned(Q2))));
+	output <= Q1 srl unsigned(Q2);
 
 end logical;
 

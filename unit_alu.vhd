@@ -60,7 +60,7 @@ begin
 	/* unsigned maths */
 	u_add: entity work.M_unsigned_add generic map (word_width) port map (DataIn(0), DataIn(1), carry_in, carry_out, outputMux(0));
 	u_sub: entity work.M_unsigned_sub generic map (word_width) port map (DataIn(0), DataIn(1), sub_out, outputMux(1));
-	u_mul: entity work.M_unsigned_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_out(2));
+	u_mul: entity work.M_unsigned_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_out);
 	outputMux(3) <= multi_out(word_width-1 downto 0);
 	outputMux(4) <= multi_out(2*(word_width)-1 downto word_width);
 	
@@ -150,7 +150,7 @@ begin
 	/* signed maths */
 	u_add: entity work.M_signed_add generic map (word_width) port map (DataIn(0), DataIn(1), overflowA, outputMux(0));
 	u_sub: entity work.M_signed_sub generic map (word_width) port map (DataIn(0), DataIn(1), overflowB, outputMux(1));
-	u_mul: entity work.M_signed_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_out(2));
+	u_mul: entity work.M_signed_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_out);
 	outputMux(3) <= multi_out(word_width-1 downto 0);
 	outputMux(4) <= multi_out(2*(word_width)-1 downto word_width);
 	
@@ -242,14 +242,14 @@ begin
 	/* unsigned maths */
 	u_add: entity work.M_signed_add generic map (word_width) port map (DataIn(0), DataIn(1), overflowA, outputMux(0));
 	u_sub: entity work.M_signed_sub generic map (word_width) port map (DataIn(0), DataIn(1), overflowB, outputMux(1));
-	u_mul: entity work.M_signed_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_outU(2));
+	u_mul: entity work.M_signed_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_outU);
 	outputMux(3) <= multi_outU(word_width-1 downto 0);
 	outputMux(4) <= multi_outU(2*(word_width)-1 downto word_width);
 	
 	/* signed maths */
-	u_add: entity work.M_signed_add generic map (word_width) port map (DataIn(0), DataIn(1), overflowA, outputMux(5));
-	u_sub: entity work.M_signed_sub generic map (word_width) port map (DataIn(0), DataIn(1), overflowB, outputMux(6));
-	u_mul: entity work.M_signed_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_outS(7));
+	u_addM: entity work.M_signed_add generic map (word_width) port map (DataIn(0), DataIn(1), overflowA, outputMux(5));
+	u_subM: entity work.M_signed_sub generic map (word_width) port map (DataIn(0), DataIn(1), overflowB, outputMux(6));
+	u_mulM: entity work.M_signed_multi generic map (word_width) port map (DataIn(0), DataIn(1), multi_outS);
 	outputMux(8) <= multi_outS(word_width-1 downto 0);
 	outputMux(9) <= multi_outS(2*(word_width)-1 downto word_width);
 	

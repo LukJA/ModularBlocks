@@ -36,8 +36,8 @@ signal temp : vector_t(word_width downto 0);
 
 begin
 	
-	temp   <= std_logic_vector(unsigned(Q1) + unsigned(Q2) + unsigned(c_in & ""));
-	cout   <= temp(word_width);
+	temp   <= std_logic_vector((unsigned(Q1) + unsigned(Q2)) + unsigned(std_to_vec(c_in)));
+	c_out   <= temp(word_width);
 	output <= temp(word_width-1 downto 0);
 		
 end logical;
@@ -72,7 +72,7 @@ signal temp : vector_t(word_width downto 0);
 begin
 	
 	temp   <= std_logic_vector(unsigned(Q1) - unsigned(Q2));
-	cout   <= temp(word_width);
+	c_out   <= temp(word_width);
 	output <= temp(word_width-1 downto 0);
 		
 end logical;
@@ -106,8 +106,7 @@ signal temp : vector_t(word_width downto 0);
 begin
 	
 	temp   <= std_logic_vector(unsigned(Q1) * unsigned(Q2));
-	cout   <= temp(2*(word_width)-1 downto word_width);
-	output <= temp(word_width-1 downto 0);
+	output <= temp;
 		
 end logical;
 

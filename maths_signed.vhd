@@ -51,7 +51,14 @@ output <= std_logic_vector(resize(output_s, output'length));
 
 -- concat the three relevant sign-bits from a,b and sum to one vector
 temp  <= Q1_s(Q1_s'high) & Q2_s(Q2_s'high) & output_s(output_s'high);
-OV 	<= (temp = "001") or (temp = "110");
+
+process(all) begin
+	case temp is
+		when "001" => OV <= '1';
+		when "110" => OV <= '1';
+		when others => OV <= '0';
+	end case;
+end process;
 		
 end logical;
 
@@ -100,7 +107,14 @@ output <= std_logic_vector(resize(output_s, output'length));
 
 -- concat the three relevant sign-bits from a,b and sum to one vector
 temp  <= Q1_s(Q1_s'high) & Q2_s(Q2_s'high) & output_s(output_s'high);
-OV 	<= (temp = "001") or (temp = "110");
+
+process(all) begin
+	case temp is
+		when "001" => OV <= '1';
+		when "110" => OV <= '1';
+		when others => OV <= '0';
+	end case;
+end process;
 		
 end logical;
 
@@ -133,8 +147,7 @@ signal temp : vector_t(word_width downto 0);
 begin
 	
 	temp   <= std_logic_vector(unsigned(Q1) * unsigned(Q2));
-	cout   <= temp(2*(word_width)-1 downto word_width);
-	output <= temp(word_width-1 downto 0);
+	output <= temp;
 		
 end logical;
 

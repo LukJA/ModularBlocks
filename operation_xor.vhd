@@ -22,9 +22,9 @@ entity OP_array_xor is
 		);
 		
 	port(	
-		output: out array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
 		Q1		: in 	array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		Q2		: in 	array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'))
+		Q2		: in 	array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
+		output: out array_t(word_no-1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'))
 		);
 		
 end OP_array_xor;
@@ -56,9 +56,9 @@ entity OP_vector_xor is
 		);
 		
 	port(	
-		output: out vector_t(word_width-1 downto 0) := (others=>'0');
 		Q1		: in 	vector_t(word_width-1 downto 0) := (others=>'0');
-		Q2		: in 	vector_t(word_width-1 downto 0) := (others=>'0')
+		Q2		: in 	vector_t(word_width-1 downto 0) := (others=>'0');
+		output: out vector_t(word_width-1 downto 0) := (others=>'0')
 		);
 		
 end OP_vector_xor;
