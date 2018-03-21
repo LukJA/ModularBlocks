@@ -107,7 +107,7 @@ entity U_mem_page2p is
 		/* Enable 		: 1 bit enable port */
 		
 		/* DataOut 		: 2 vector output containing the data */
-		/* AddressOut 	: disabled
+		/* AddressOut 	: disabled */
 		/* controlOut	: disabled */
 		/* Reset 		: 1 bit reset port */
 		
@@ -139,7 +139,7 @@ begin
 	
 		---- PORT B ----
 	/* clock one hot encoder */ 
-	clk_muxM: entity work.F_onehot_enc generic map (addr_width, mem_size) port map AddressIn_0, regClockB);	
+	clk_muxM: entity work.F_onehot_enc generic map (addr_width, mem_size) port map (AddressIn_0, regClockB);	
 	/* input demultiplexer */
 	in_muxM: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn_0, AddressIn_0, regDB);
 	/* output multiplexer */
