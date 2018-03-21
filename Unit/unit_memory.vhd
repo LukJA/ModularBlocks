@@ -23,15 +23,15 @@ entity U_mem_page1p is
 		);
 		
 	port(	
-		DataIn 		: in array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
+		DataIn 		: in vector_t(word_width-1 downto 0) := (others=> (others=>'0'));
 		AddressIn	: in vector_t(addr_width-1 downto 0) := (others=>'0');
 		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut 		: out array_t(0 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
+		DataOut 	: out vector_t(word_width-1 downto 0) := (others=> (others=>'0'));
 		AddressOut	: out vector_t(addr_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out bit_t;
-		Reset			: in  bit_t := '0'
+		Reset		: in  bit_t := '0'
 		);
 		
 		/* DataIn 		: 1 vector holding data in */
@@ -62,9 +62,9 @@ begin
 	clk_mux: entity work.F_onehot_enc generic map (addr_width, mem_size) port map (AddressIn, regClock);
 	
 	/* input demultiplexer */
-	in_mux: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn(0), AddressIn, regDs);
+	in_mux: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn, AddressIn, regDs);
 	/* output multiplexer */
-	out_mux: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn, DataOut(0));
+	out_mux: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn, DataOut);
 
 	addressOut <= addressIn;
 	
@@ -87,24 +87,27 @@ entity U_mem_page2p is
 		);
 		
 	port(	
-		DataIn 		: in array_t(1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		AddressIn	: in array_t(1 downto 0)(addr_width-1 downto 0) := (others=> (others=>'0'));
+		DataIn_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		DataIn_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		AddressIn_0 : in vector_t(word_width-1 downto 0) := (others=>'0');
+		AddressIn_1 : in vector_t(word_width-1 downto 0) := (others=>'0');
 		ControlIn 	: in vector_t(1 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut 		: out array_t(1 downto 0)(word_width-1 downto 0) := (others=> (others=>'0'));
-		AddressOut	: out array_t(1 downto 0)(addr_width-1 downto 0) := (others=> (others=>'0')); 
+		DataOut_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		AddressOut	: out bit_t; 
 		ControlOut 	: out bit_t;
-		Reset			: in  bit_t := '0'
+		Reset		: in  bit_t := '0'
 		);
 		
-		/* DataIn 		: 2 vector holding data in (A,B) */
+		/* DataIn0,1 		: 2 vector holding data in (A,B) */
 		/* AddressIn 	: 2 vector holding address in (A,B) */
 		/* controlIn	: 2 bit wide clock (A,B) */
 		/* Enable 		: 1 bit enable port */
 		
 		/* DataOut 		: 2 vector output containing the data */
-		/* AddressOut 	: 2 vector address followthrough */
+		/* AddressOut 	: disabled
 		/* controlOut	: disabled */
 		/* Reset 		: 1 bit reset port */
 		
@@ -128,19 +131,19 @@ begin
 	
 	---- PORT A ----
 	/* clock one hot encoder */ 
-	clk_mux: entity work.F_onehot_enc generic map (addr_width, mem_size) port map (AddressIn(1), regClockA);	
+	clk_mux: entity work.F_onehot_enc generic map (addr_width, mem_size) port map (AddressIn_1, regClockA);	
 	/* input demultiplexer */
-	in_mux: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn(1), AddressIn(1), regDA);
+	in_mux: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn_1, AddressIn_1, regDA);
 	/* output multiplexer */
-	out_mux: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn(1), DataOut(1));
+	out_mux: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn_1, DataOut_1);
 	
 		---- PORT B ----
 	/* clock one hot encoder */ 
-	clk_muxM: entity work.F_onehot_enc generic map (addr_width, mem_size) port map (AddressIn(0), regClockB);	
+	clk_muxM: entity work.F_onehot_enc generic map (addr_width, mem_size) port map AddressIn_0, regClockB);	
 	/* input demultiplexer */
-	in_muxM: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn(0), AddressIn(0), regDB);
+	in_muxM: entity work.F_demux_array generic map (mem_size, word_width, addr_width) port map (DataIn_0, AddressIn_0, regDB);
 	/* output multiplexer */
-	out_muxM: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn(0), DataOut(0));
+	out_muxM: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn_0, DataOut_0);
 	
 	/* connection */
 	reg_or: entity work.OP_array_or generic map (mem_size, word_width) port map (regDA, regDB, regDs);

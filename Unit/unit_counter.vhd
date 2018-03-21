@@ -22,8 +22,8 @@ entity U_incrementer is
 		
 	port(	
 		output		: out vector_t(word_width-1 downto 0) := (others=>'0');
-		clock			: in bit_t := '0';
-		reset			: in bit_t := '0';
+		clock		: in bit_t := '0';
+		reset		: in bit_t := '0';
 		enable		: in bit_t := '0'
 		);
 		
@@ -56,8 +56,8 @@ entity U_decrementer is
 		
 	port(	
 		output		: out vector_t(word_width-1 downto 0) := (others=>'0');
-		clock			: in bit_t := '0';
-		reset			: in bit_t := '0';
+		clock		: in bit_t := '0';
+		reset		: in bit_t := '0';
 		enable		: in bit_t := '0'
 		);
 		
@@ -89,15 +89,15 @@ entity U_adjustcounter is
 		);
 		
 	port(	
-		DataIn 		: in bit_t;
+		DataIn 		: in bit_t := '0';
 		AddressIn	: in vector_t(word_width-1 downto 0) := (others=>'0');
 		ControlIn 	: in vector_t(1 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut 		: out bit_t;
+		DataOut 	: out bit_t := '0';
 		AddressOut	: out vector_t(word_width-1 downto 0) := (others=>'0');
-		ControlOut 	: out bit_t;
-		Reset			: in  bit_t := '0'
+		ControlOut 	: out bit_t := '0';
+		Reset		: in  bit_t := '0'
 		);
 		
 		/* DataIn 		: diabled */

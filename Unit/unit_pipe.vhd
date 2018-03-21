@@ -22,14 +22,14 @@ entity U_pipe_buffer is
 		
 	port(	
 		DataIn 		: in vector_t(word_width-1 downto 0) := (others=>'0');
-		AddressIn	: in bit_t;
+		AddressIn	: in bit_t := '0';
 		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut 		: out vector_t(word_width-1 downto 0) := (others=>'0');
-		AddressOut	: out bit_t;
-		ControlOut 	: out bit_t;
-		Reset			: in  bit_t := '0'
+		DataOut 	: out vector_t(word_width-1 downto 0) := (others=>'0');
+		AddressOut	: out bit_t := '0';
+		ControlOut 	: out bit_t := '0';
+		Reset		: in  bit_t := '0'
 		);
 		
 		/* DataIn 		: 1 vector holding data in */
