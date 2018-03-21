@@ -66,7 +66,6 @@ begin
 	/* output multiplexer */
 	out_mux: entity work.F_mux_array generic map (mem_size, word_width, addr_width) port map (regQs, AddressIn, DataOut);
 
-	addressOut <= addressIn;
 	
 end logical;
 
@@ -148,6 +147,5 @@ begin
 	/* connection */
 	reg_or: entity work.OP_array_or generic map (mem_size, word_width) port map (regDA, regDB, regDs);
 
-	AddressOut <= AddressIn;
 	
 end logical;
