@@ -23,12 +23,12 @@ entity U_mem_page1p is
 		);
 		
 	port(	
-		DataIn 		: in vector_t(word_width-1 downto 0) := (others=> (others=>'0'));
+		DataIn 		: in vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressIn	: in vector_t(addr_width-1 downto 0) := (others=>'0');
 		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut 	: out vector_t(word_width-1 downto 0) := (others=> (others=>'0'));
+		DataOut 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(addr_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out bit_t;
 		Reset		: in  bit_t := '0'
