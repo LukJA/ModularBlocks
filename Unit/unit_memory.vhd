@@ -94,8 +94,8 @@ entity U_mem_page2p is
 		ControlIn 	: in vector_t(1 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
-		DataOut_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out bit_t; 
 		ControlOut 	: out bit_t;
 		Reset		: in  bit_t := '0'

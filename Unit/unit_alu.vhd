@@ -29,8 +29,8 @@ entity U_ALU_unsigned is
 		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
-		DataOut_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
 		Reset		: in  bit_t := '0'
@@ -121,8 +121,8 @@ entity U_ALU_signed is
 		ControlIn 	: in vector_t(control_width-1 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
-		DataOut_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
 		Reset		: in  bit_t := '0'
@@ -210,8 +210,8 @@ entity U_ALU_super is
 		ControlIn 	: in vector_t(0 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
-		DataOut_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
-		DataOut_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
+		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
 		ControlOut 	: out vector_t(3 downto 0) := (others=>'0');
 		Reset		: in  bit_t := '0'
