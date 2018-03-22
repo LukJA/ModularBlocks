@@ -90,8 +90,8 @@ agreement for further details.
 	(port
 		(pt 336 80)
 		(output)
-		(text "ControlOut[1..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "ControlOut[1..0]" (rect 254 75 315 87)(font "Arial" ))
+		(text "ControlOut[3..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "ControlOut[3..0]" (rect 253 75 315 87)(font "Arial" ))
 		(line (pt 336 80)(pt 320 80)(line_width 3))
 	)
 	(parameter
