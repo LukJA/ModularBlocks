@@ -32,7 +32,7 @@ entity U_ALU_unsigned is
 		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
-		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
+		ControlOut 	: out vector_t(3 downto 0) := (others=>'0');
 		Reset		: in  bit_t := '0'
 		);
 		
@@ -94,6 +94,20 @@ begin
 	ControlOut(0) <= carry_out;
 	ControlOut(1) <= sub_out;
 	AddressOut <= AddressIn;
+	
+	process(DataOut_0)begin
+		if unsigned(DataOut_0) = 0 then 
+			ControlOut(2) <= '1';
+		else 
+			ControlOut(2) <= '0';
+		end if;
+		
+		if DataIn_0 = DataIn_1 then
+			ControlOut(3) <= '1';
+		else 
+			ControlOut(3) <= '0';
+		end if;
+	end process;
 
 end logical;
 
@@ -124,7 +138,7 @@ entity U_ALU_signed is
 		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
-		ControlOut 	: out vector_t(1 downto 0) := (others=>'0');
+		ControlOut 	: out vector_t(3 downto 0) := (others=>'0');
 		Reset		: in  bit_t := '0'
 		
 		/* DataIn0,1	: 2 vectors holding the data to be computed */
@@ -185,6 +199,19 @@ begin
 	ControlOut(1) <= overflowB;
 	AddressOut <= AddressIn;
 
+	process(DataOut_0)begin
+		if unsigned(DataOut_0) = 0 then 
+			ControlOut(2) <= '1';
+		else 
+			ControlOut(2) <= '0';
+		end if;
+		
+		if DataIn_0 = DataIn_0 then
+			ControlOut(3) <= '1';
+		else 
+			ControlOut(3) <= '0';
+		end if;
+	
 end logical;
 
 --------------------------------
@@ -213,7 +240,7 @@ entity U_ALU_super is
 		DataOut_0 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		DataOut_1 	: out vector_t(word_width-1 downto 0) := (others=>'0');
 		AddressOut	: out vector_t(control_width-1 downto 0) := (others=>'0');
-		ControlOut 	: out vector_t(3 downto 0) := (others=>'0');
+		ControlOut 	: out vector_t(5 downto 0) := (others=>'0');
 		Reset		: in  bit_t := '0'
 		
 		/* DataIn0,1 		: 2 vectors holding the data to be computed */
@@ -291,6 +318,20 @@ begin
 	ControlOut(2) <= overflowA;
 	ControlOut(3) <= overflowB;
 	AddressOut <= AddressIn;
+	
+	process(DataOut_0)begin
+		if unsigned(DataOut_0) = 0 then 
+			ControlOut(4) <= '1';
+		else 
+			ControlOut(4) <= '0';
+		end if;
+		
+		if DataIn_0 = DataIn_0 then
+			ControlOut(5) <= '1';
+		else 
+			ControlOut(5) <= '0';
+		end if;
+	end process;
 
 end logical;
 
