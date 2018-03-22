@@ -55,7 +55,7 @@ signal carry_out 	: bit_t := '0';
 signal sub_out 		: bit_t := '0';
 signal multi_out	: vector_t(2*(word_width)-1 downto 0) := (others => '0');
 
-signal outputMux	: array_t(7 downto 0)(word_width-1 downto 0);
+signal outputMux	: array_t(15 downto 0)(word_width-1 downto 0);
 
 begin
 	
@@ -147,7 +147,7 @@ signal overflowA 	: bit_t := '0';
 signal overflowB 	: bit_t := '0';
 signal multi_out	: vector_t(word_width-1 downto 0) := (others => '0');
 
-signal outputMux	: array_t(7 downto 0)(word_width-1 downto 0);
+signal outputMux	: array_t(15 downto 0)(word_width-1 downto 0);
 
 begin
 	
@@ -241,7 +241,7 @@ signal overflowB 	: bit_t := '0';
 signal multi_outS	: vector_t(word_width-1 downto 0) := (others => '0');
 
 
-signal outputMux	: array_t(9 downto 0)(word_width-1 downto 0);
+signal outputMux	: array_t(22 downto 0)(word_width-1 downto 0);
 
 begin
 	
