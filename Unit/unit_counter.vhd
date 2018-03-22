@@ -125,6 +125,7 @@ begin
 	with temp select plus_one <=
 		std_logic_vector(unsigned(AddressOut) + 1) when "00", /* normal */ 
 									  (others => '0') when "1-", /* reset */  
-										     AddressIn when "01";/* adjust */
+										     AddressIn when "01",/* adjust */
+											 AddressIn when others;
 	
 end logical;
