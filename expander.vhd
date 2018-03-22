@@ -7,7 +7,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.pack_global.all;
+use work.global.all;
 
 entity U_expansionIF is 
 
@@ -90,7 +90,7 @@ end func;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.pack_global.all;
+use work.global.all;
 
 /* a memory based Peripheral Access Layer */
 /* fixed precision */
