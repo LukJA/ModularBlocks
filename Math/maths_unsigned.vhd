@@ -36,7 +36,7 @@ signal temp : vector_t(word_width downto 0);
 
 begin
 	
-	temp   <= std_logic_vector((unsigned(Q1) + unsigned(Q2)) + unsigned(std_to_vec(c_in)));
+	temp   <= std_logic_vector((unsigned("0" & Q1) + unsigned(Q2)) + unsigned(std_to_vec(c_in)));
 	c_out   <= temp(word_width);
 	output <= temp(word_width-1 downto 0);
 		
