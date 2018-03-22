@@ -53,7 +53,7 @@ architecture logical of U_ALU_unsigned is
 signal carry_in 	: bit_t := '0';
 signal carry_out 	: bit_t := '0';
 signal sub_out 		: bit_t := '0';
-signal multi_out	: vector_t(word_width-1 downto 0) := (others => '0');
+signal multi_out	: vector_t(2*(word_width)-1 downto 0) := (others => '0');
 
 signal outputMux	: array_t(7 downto 0)(word_width-1 downto 0);
 
@@ -72,7 +72,7 @@ begin
 	op_nan: entity work.OP_vector_nand generic map (word_width) port map (DataIn_0, DataIn_1, outputMux(7));
 	op_xor: entity work.OP_vector_xor generic map (word_width) port map (DataIn_0, DataIn_1, outputMux(8));
 	
-		/* iterative maths */
+	/* iterative maths */
 	uns_inc: entity work.M_iterative_uns_inc generic map (word_width) port map (DataIn_0, outputMux(9));
 	uns_dec: entity work.M_iterative_uns_dec generic map (word_width) port map (DataIn_0, outputMux(10));
 	
