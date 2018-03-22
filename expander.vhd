@@ -12,28 +12,28 @@ use work.global.all;
 entity U_expansionIF is 
 
 	port (
-		Enable			: in std_logic := '0'; -- active high
-		addressData		: in std_logic := '0'; -- 0 address, 1 data
-		ReadWrite		: in std_logic := '0'; -- 0 Write, 1 read
-		Clock				: in std_logic := '0'; 
+		Enable			: in bit_t := '0'; -- active high
+		addressData		: in bit_t := '0'; -- 0 address, 1 data
+		ReadWrite		: in bit_t := '0'; -- 0 Write, 1 read
+		Clock			: in bit_t := '0'; 
 		
-		dataIn			: in std_logic_vector(7 downto 0) := (others => '0');
-		dataOut			: out std_logic_vector(7 downto 0) := (others => '0');
-		AddressIn		: in std_logic_vector(15 downto 0) := (others => '0');
+		dataIn			: in vector_t(7 downto 0) := (others => '0');
+		dataOut			: out vector_t(7 downto 0) := (others => '0');
+		AddressIn		: in vector_t(15 downto 0) := (others => '0');
 		
-		streamIn			: in std_logic_vector(7 downto 0) := (others => '0');
-		streamOut		: out std_logic_vector(7 downto 0) := (others => '0');
-		AddressOut		: out std_logic_vector(15 downto 0) := (others => '0');
-		clkO				: out std_logic := '0'
+		streamIn		: in vector_t(7 downto 0) := (others => '0');
+		streamOut		: out vector_t(7 downto 0) := (others => '0');
+		AddressOut		: out vector_t(15 downto 0) := (others => '0');
+		clkO			: out bit_t := '0'
 	);
 
 end U_expansionIF;
 
 architecture func of U_expansionIF is
 
-	signal bufferIn, bufferOut	: std_logic_vector(7 downto 0) := (others => '0');
-	signal outClockEn	:	std_logic := '0';
-	signal Addr_plus_one, AddressR : std_logic_vector(15 downto 0);
+	signal bufferIn, bufferOut	: vector_t(7 downto 0) := (others => '0');
+	signal outClockEn			: bit_t := '0';
+	signal Addr_plus_one, AddressR : vector_t(15 downto 0);
 
 begin
 
@@ -98,26 +98,26 @@ use work.global.all;
 
 entity U_PAL is 
 	port( clk: in std_logic := '0';
-			Address: in std_logic_vector(15 downto 0) := (others => '0');
-			DataIn: in std_logic_vector(7 downto 0) := (others => '0');
-			DataOut: out std_logic_vector(7 downto 0) := (others => '0');
+			Address	: in vector_t(15 downto 0) := (others => '0');
+			DataIn	: in vector_t(7 downto 0) := (others => '0');
+			DataOut	: out vector_t(7 downto 0) := (others => '0');
 			
-			strIN1, strIN2, strIN3, strIN4, strIN5 : in std_logic_vector(15 downto 0);
-			strOUT1, strOUT2, strOUT3, strOUT4, strOUT5 : out std_logic_vector(15 downto 0);
+			strIN1, strIN2, strIN3, strIN4, strIN5 : in vector_t(15 downto 0);
+			strOUT1, strOUT2, strOUT3, strOUT4, strOUT5 : out vector_t(15 downto 0);
 			
-			hi : in std_logic_vector(0 downto 0) := "1"
+			hi : in vector_t(0 downto 0) := "1"
 			);
 		
 end U_PAL;
 
 architecture versionone of U_PAL is 
 
-	signal reg_clocks : std_logic_vector(9 downto 0);
+	signal reg_clocks : vector_t(9 downto 0);
 
-	signal out_stream_raw : array_p(9 downto 0)(7 downto 0);
-	signal in_stream_raw : array_p(9 downto 0)(7 downto 0);
+	signal out_stream_raw : array_t(9 downto 0)(7 downto 0);
+	signal in_stream_raw : array_t(9 downto 0)(7 downto 0);
 	
-	signal in_stream_reg : array_p(9 downto 0)(7 downto 0);
+	signal in_stream_reg : array_t(9 downto 0)(7 downto 0);
 
 begin
 
