@@ -159,7 +159,7 @@ begin
 	
 	/* setup the selection mux for ths data */
 	
-	outputmux: entity work.F_mux_array generic map (10,8,4) port map (in_stream_reg, Address, DataOut);
+	outputmux: entity work.F_mux_array generic map (10,8,4) port map (in_stream_reg, Address(3 downto 0), DataOut);
 	
 
 end versionone;
