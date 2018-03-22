@@ -36,7 +36,7 @@ signal temp : vector_t(word_width downto 0);
 
 begin
 	
-	temp   <= std_logic_vector((unsigned("0" & Q1) + unsigned(Q2)) + unsigned(std_to_vec(c_in)));
+	temp   <= std_logic_vector((unsigned('0' & Q1) + unsigned(Q2)) + unsigned(std_to_vec(c_in)));
 	c_out   <= temp(word_width);
 	output <= temp(word_width-1 downto 0);
 		
@@ -71,7 +71,7 @@ signal temp : vector_t(word_width downto 0);
 
 begin
 	
-	temp   <= std_logic_vector(unsigned(Q1) - unsigned(Q2));
+	temp   <= std_logic_vector(unsigned('0' & Q1) - unsigned(Q2));
 	c_out   <= temp(word_width);
 	output <= temp(word_width-1 downto 0);
 		
@@ -93,15 +93,15 @@ entity M_unsigned_multi is
 		
 	port(	
 		Q1		: in  vector_t(word_width-1 downto 0) := (others=>'0');
-		Q2		: in 	vector_t(word_width-1 downto 0) := (others=>'0');
-		output: out	vector_t(2*(word_width)-1 downto 0) := (others=>'0')
+		Q2		: in  vector_t(word_width-1 downto 0) := (others=>'0');
+		output  : out vector_t(2*(word_width)-1 downto 0) := (others=>'0')
 		);
 		
 end M_unsigned_multi;
 
 architecture logical of M_unsigned_multi is 
 
-signal temp : vector_t(word_width downto 0);
+signal temp : vector_t(2*(word_width)-1 downto 0);
 
 begin
 	
