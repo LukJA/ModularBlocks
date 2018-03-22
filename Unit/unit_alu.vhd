@@ -211,6 +211,7 @@ begin
 		else 
 			ControlOut(3) <= '0';
 		end if;
+	end process;
 	
 end logical;
 
