@@ -88,8 +88,8 @@ entity U_mem_page2p is
 	port(	
 		DataIn_0 	: in vector_t(word_width-1 downto 0) := (others=>'0');
 		DataIn_1 	: in vector_t(word_width-1 downto 0) := (others=>'0');
-		AddressIn_0 : in vector_t(word_width-1 downto 0) := (others=>'0');
-		AddressIn_1 : in vector_t(word_width-1 downto 0) := (others=>'0');
+		AddressIn_0 : in vector_t(addr_width-1 downto 0) := (others=>'0');
+		AddressIn_1 : in vector_t(addr_width-1 downto 0) := (others=>'0');
 		ControlIn 	: in vector_t(1 downto 0) := (others=>'0');
 		Enable		: in bit_t := '0';
 		
