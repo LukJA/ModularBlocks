@@ -61,4 +61,4 @@ The available modules are:
 - U_mem_page1p
 - U_mem_page2p
 - U_pipe_buffer
-
+- U_Expander
