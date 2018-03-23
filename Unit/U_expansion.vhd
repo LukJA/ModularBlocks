@@ -17,11 +17,11 @@ entity U_expansionIF is
 		ReadWrite		: in bit_t := '0'; -- 0 Write, 1 read
 		Clock			: in bit_t := '0'; 
 		
-		dataIn			: in vector_t(7 downto 0) := (others => '0');
+		dataIn			: in vector_t(7 downto 0) := (others => '0');	-- intercepted io
 		dataOut			: out vector_t(7 downto 0) := (others => '0');
 		AddressIn		: in vector_t(15 downto 0) := (others => '0');
 		
-		streamIn		: in vector_t(7 downto 0) := (others => '0');
+		streamIn		: in vector_t(7 downto 0) := (others => '0');		-- expanded io
 		streamOut		: out vector_t(7 downto 0) := (others => '0');
 		AddressOut		: out vector_t(15 downto 0) := (others => '0');
 		clkO			: out bit_t := '0'
@@ -31,9 +31,13 @@ end U_expansionIF;
 
 architecture func of U_expansionIF is
 
+	attribute keep : string; 
+
 	signal bufferIn, bufferOut	: vector_t(7 downto 0) := (others => '0');
 	signal outClockEn			: bit_t := '0';
 	signal Addr_plus_one, AddressR : vector_t(15 downto 0);
+	
+	attribute keep of Addr_plus_one: signal is "true";
 
 begin
 
@@ -41,7 +45,7 @@ begin
 	clkO <= (not Clock) and outClockEn;
 	
 	-- setup the address register combinationally
-	addressStorage: entity work.F_mem_register generic map (16) port map (not((not addressData) and Clock and enable), AddressR, AddressOut);
+	addressStorage: entity work.F_mem_register generic map (16) port map (not(Clock and enable), AddressR, AddressOut);
 	Addr_plus_one <= std_logic_vector(unsigned(AddressOut) + 1);
 	
 	-- connect buffer lines to memory bus
@@ -59,7 +63,7 @@ begin
 		end if;
 	end process;
 	
-	process(Clock)begin
+	process(all)begin
 		if rising_edge(Clock) then
 		-- this is the clock edge where we control data
 		if outClockEn = '1' then outClockEn <= '0'; end if;
